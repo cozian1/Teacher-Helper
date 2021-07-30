@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafafa"
+    tools:context=".Activities.Pdfmaker">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="@dimen/_20sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        app:cardElevation="@dimen/_12sdp">
+        <EditText
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_40sdp"
+            android:paddingHorizontal="@dimen/_7sdp"
+            android:paddingVertical="@dimen/_15sdp"
+            android:gravity="start"
+            android:background="#fff"
+            android:inputType="textMultiLine"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:strokeColor="#ef6c00"
+            app:strokeWidth="@dimen/_2sdp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:text="reset"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/_7sdp"
+            android:layout_gravity="bottom|start"
+            android:onClick="reset"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#43a047"
+            android:textColor="@color/white"
+            android:text="save"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/_7sdp"
+            android:layout_gravity="bottom|end"
+            android:onClick="save"/>
+    </androidx.cardview.widget.CardView>
+
+
+</FrameLayout>

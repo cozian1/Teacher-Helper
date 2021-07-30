@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_todo"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="#EF5350"
+        android:text="@string/task"
+        android:textColor="@color/purple_700"
+        android:gravity="center"
+        android:textSize="@dimen/_28sdp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/titled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/_40sdp"
+        android:hint="Title"
+        android:textColorHint="#006064"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:textSize="@dimen/_20sdp"
+        android:textColor="#006064"
+        android:layout_weight="6"/>
+
+    <EditText
+        android:id="@+id/descriptiond"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/_100sdp"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:textSize="@dimen/_14sdp"
+        android:paddingBottom="@dimen/_12sdp"
+        android:textColor="#003040"
+        android:hint="Description"
+        android:textColorHint="#003040"
+        android:gravity="start"/>
+
+
+</LinearLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_60sdp"
+    android:background="@drawable/dialog_box"
+    android:orientation="horizontal"
+    android:layout_marginVertical="@dimen/_10sdp"
+    android:weightSum="15">
+    <TextView
+        android:id="@+id/demotime"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="12\n30"
+        android:textSize="@dimen/_24sdp"
+        android:paddingVertical="0dp"
+        android:paddingStart="@dimen/_10sdp"
+        android:textColor="#ff4081"
+        android:layout_weight="1" />
+    <TextView
+        android:layout_width="@dimen/_1sdp"
+        android:layout_height="match_parent"
+        android:background="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="14">
+        <TextView
+            android:id="@+id/demotitle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textColor="#3f52e3"
+            android:text="Title"
+            android:textSize="@dimen/_18sdp"
+            android:paddingStart="@dimen/_5sdp"
+            android:layout_weight="2"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="#A0A0A0"/>
+        <TextView
+            android:id="@+id/demodetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="description"
+            android:textColor="#3a4190"
+            android:textSize="@dimen/_12sdp"
+            android:paddingStart="@dimen/_5sdp"
+            android:layout_weight="2"/>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Task #3</string>
+    <string name="wellcome_to_our_app"><u>Wellcome To Our App</u></string>
+    <string name="helper">HELPER</string>
+    <string name="info"><b>This<br /> app is built to help the teachers around the world during their day to day activity by providing some of the small features to help them </b></string>
+    <string name="work_todo"><u>Work TODO</u></string>
+    <string name="task"><u>TASK</u></string>
+</resources>

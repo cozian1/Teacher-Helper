@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.spectrum.task3">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Task3">
+        <activity android:name=".Activities.NewReminder"
+            android:parentActivityName=".Activities.Reminder"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".Activities.PdfView"
+            android:parentActivityName=".Activities.DocStorage" />
+        <activity android:name=".Activities.SignupActivity"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".Activities.LoginActivity"
+            android:launchMode="singleInstance"/>
+        <activity
+            android:name=".Activities.POC"
+            android:launchMode="singleInstance"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Activities.Calculator"
+            android:launchMode="singleInstance"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Activities.Todo"
+            android:launchMode="singleInstance"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Activities.DocStorage"
+            android:launchMode="singleInstance"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Activities.Reminder"
+            android:launchMode="singleInstance"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Activities.Timetable"
+            android:launchMode="singleInstance"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Activities.Pdfmaker"
+            android:launchMode="singleInstance"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>

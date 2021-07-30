@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.DocStorage">
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        app:cornerRadius="@dimen/_50sdp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/_12sdp"
+        app:elevation="@dimen/_12sdp"
+        android:background="@drawable/ic_upload"
+        android:onClick="selectFile"/>
+</FrameLayout>
