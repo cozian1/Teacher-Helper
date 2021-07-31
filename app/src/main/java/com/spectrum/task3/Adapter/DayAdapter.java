@@ -14,7 +14,9 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.spectrum.task3.Activities.Timetable;
 import com.spectrum.task3.ModelClasses.DayList;
+import com.spectrum.task3.ModelClasses.Mylist;
 import com.spectrum.task3.ModelClasses.TimetableAdapter;
 import com.spectrum.task3.R;
 
@@ -25,11 +27,12 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.ViewHolder>{
    List<DayList> list=new ArrayList<>();
    Context context;
    TimetableAdapter myAdapter;
-   LinearLayoutManager linearLayoutManager;
+
+
    public class ViewHolder extends RecyclerView.ViewHolder{
       private TextView title;
-      CardView card;
       private RecyclerView recyclerView;
+      CardView card;
       public ViewHolder(@NonNull View itemView) {
          super(itemView);
          title=itemView.findViewById(R.id.myday);
@@ -57,6 +60,15 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.ViewHolder>{
       holder.title.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
+            for(DayList d:list) {
+               d.setState("false");
+            }
+            DayList d=list.get(position);
+            d.setState("true");
+            list.remove(position);
+            list.add(position,d);
+            notifyDataSetChanged();
+            ((Timetable)context).setday(list.get(position).getTitle());
          }
       });
    }
