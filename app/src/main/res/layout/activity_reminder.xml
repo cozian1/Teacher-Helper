@@ -9,7 +9,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:background="#dEa3e8"
+        android:background="#CE93D8"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/_52sdp">
 
@@ -70,8 +70,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="-60dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
         >
 
     </androidx.recyclerview.widget.RecyclerView>
