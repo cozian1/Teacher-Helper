@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_150sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_height="@dimen/_40sdp">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/daycard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_30sdp"
+        app:cardBackgroundColor="#5c6bc0">
+        <TextView
+            android:id="@+id/myday"
+            android:text="MONDAY"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/_18sdp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
