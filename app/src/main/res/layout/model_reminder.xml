@@ -12,10 +12,12 @@
         android:id="@+id/demotime"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="12\n30"
+        android:text="2\n30"
+        android:textAlignment="textEnd"
         android:textSize="@dimen/_24sdp"
         android:paddingVertical="0dp"
-        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_5sdp"
+        android:layout_marginTop="-3dp"
         android:textColor="#ff4081"
         android:layout_weight="1" />
     <TextView
