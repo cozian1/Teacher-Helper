@@ -3,6 +3,8 @@ package com.spectrum.task3.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.content.Intent;
@@ -31,6 +33,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.spectrum.task3.Adapter.FileAdapter;
 import com.spectrum.task3.ModelClasses.TODO;
 import com.spectrum.task3.ModelClasses.UploadFile;
 import com.spectrum.task3.R;
@@ -44,7 +47,9 @@ public class DocStorage extends AppCompatActivity {
    String displayName = " ";
    final static int PICK_PDF_CODE = 2342;
    List<UploadFile> uploadList;
-   ListView listView;
+   RecyclerView recyclerView;
+   FileAdapter myAdapter;
+   LinearLayoutManager linearLayoutManager;
 
    StorageReference storageReference;
    DatabaseReference databaseReference;
@@ -54,33 +59,21 @@ public class DocStorage extends AppCompatActivity {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_doc_storage);
       uploadList=new ArrayList<>();
+      myAdapter=new FileAdapter();
 
       storageReference = FirebaseStorage.getInstance().getReference();
       databaseReference = FirebaseDatabase.getInstance().getReference().child(FirebaseAuth.getInstance().getCurrentUser().getUid().toString()).child("Uploads");
 
       getfdata();
-      listView = (ListView) findViewById(R.id.listview);
 
+      recyclerView =findViewById(R.id.listview);
+      myAdapter.setData(uploadList,DocStorage.this);
+      linearLayoutManager = new LinearLayoutManager(DocStorage.this);
+      linearLayoutManager.setReverseLayout(true);
+      linearLayoutManager.setStackFromEnd(true);
+      recyclerView.setLayoutManager(linearLayoutManager);
+      recyclerView.setAdapter(myAdapter);
 
-      listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-         @Override
-         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-            UploadFile upload = uploadList.get(position);
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(upload.getUri()));
-            startActivity(intent);
-            return true;
-         }
-      });
-      listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-         @Override
-         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-            UploadFile upload = uploadList.get(position);
-            Intent ox=new Intent(DocStorage.this,PdfView.class);
-            ox.putExtra("name",upload.getName());
-            startActivity(ox);
-         }
-      });
    }
 
 
@@ -154,7 +147,8 @@ public class DocStorage extends AppCompatActivity {
                      public void onSuccess(Uri uri) {
                         UploadFile upload = new UploadFile(displayName, uri.toString());
                         databaseReference.child(databaseReference.push().getKey()).setValue(upload);
-                     }});
+                     }
+                  });
                }
             })
             .addOnFailureListener(new OnFailureListener() {
@@ -182,27 +176,28 @@ public class DocStorage extends AppCompatActivity {
                UploadFile upload = postSnapshot.getValue(UploadFile.class);
                uploadList.add(upload);
             }
-
-            String[] uploads = new String[uploadList.size()];
-
-            for (int i = 0; i < uploads.length; i++) {
-               uploads[i] = uploadList.get(i).getName();
-            }
-
-            //displaying it to list
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uploads);
-            listView.setAdapter(adapter);
+            myAdapter.notifyDataSetChanged();
          }
 
          @Override
          public void onCancelled(DatabaseError databaseError) {
-
+            Toast.makeText(DocStorage.this, "No Data", Toast.LENGTH_SHORT).show();
          }
       });
    }
 
 
    public void selectFile(View view) {
-      getPDF();
+      if(Build.VERSION.SDK_INT> Build.VERSION_CODES.M)
+      {
+         if(checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_DENIED)
+         {
+            String[] parmission={Manifest.permission.WRITE_EXTERNAL_STORAGE};
+            requestPermissions(parmission,1000);
+         }
+         else getPDF();
+      }
+      else getPDF();
+
    }
 }

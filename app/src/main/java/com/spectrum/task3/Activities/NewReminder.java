@@ -4,12 +4,14 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.icu.util.Calendar;
 import android.icu.util.TimeZone;
@@ -48,7 +50,17 @@ public class NewReminder extends AppCompatActivity {
    }
 
    public void lunch(View view) {
-      addReminderInCalendar();
+      if(Build.VERSION.SDK_INT> Build.VERSION_CODES.M)
+      {
+         if(checkSelfPermission(Manifest.permission.WRITE_CALENDAR)== PackageManager.PERMISSION_DENIED)
+         {
+            String[] parmission={Manifest.permission.WRITE_CALENDAR};
+            requestPermissions(parmission,1000);
+         }
+         else addReminderInCalendar();
+      }
+      else addReminderInCalendar();
+
    }
 
    @SuppressLint("NewApi")
