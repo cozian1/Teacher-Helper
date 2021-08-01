@@ -84,7 +84,7 @@
                     android:layout_column="1"
                     app:cornerRadius="@dimen/_10sdp"
                     android:text="Avg"
-                    android:textSize="@dimen/_18sdp"/>
+                    android:textSize="18sp"/>
                 <androidx.appcompat.widget.AppCompatButton
                     android:text="%"
                     android:textSize="@dimen/_40sdp"
