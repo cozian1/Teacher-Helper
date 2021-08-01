@@ -22,6 +22,7 @@ public class Calculator extends AppCompatActivity {
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_calculator);
+      getSupportActionBar().setTitle("Calculator");
 
       outPuttxt = findViewById(R.id.outPuttxt);
       inputTxt = findViewById(R.id.inputTxt);
@@ -55,6 +56,20 @@ public class Calculator extends AppCompatActivity {
       Button t=(Button)view;
       String s =outPuttxt.getText().toString()+t.getText().toString();
       outPuttxt.setText(s);
+   }
+   public void avg(View view) {
+      String s=outPuttxt.getText().toString(),out="";
+      int c=0;
+      long sum=0;
+      for(String temp:s.split("[^0-9]")){
+         c++;
+         System.out.println("%%%%%%% "+temp+"   %%%%%%%%");
+         sum+=Long.parseLong(temp);
+      }
+      sum/=c;
+      out+=sum;
+      inputTxt.setText(s);
+      outPuttxt.setText(out);
    }
 
 

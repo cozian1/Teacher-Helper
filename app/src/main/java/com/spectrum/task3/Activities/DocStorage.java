@@ -59,6 +59,8 @@ public class DocStorage extends AppCompatActivity {
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_doc_storage);
+      getSupportActionBar().setTitle("Document Storage");
+
       uploadList=new ArrayList<>();
       myAdapter=new FileAdapter();
 

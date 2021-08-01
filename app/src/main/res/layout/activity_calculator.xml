@@ -73,6 +73,7 @@
                     android:textSize="@dimen/_40sdp"/>
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/avg"
+                    android:onClick="avg"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="@dimen/_5sdp"
