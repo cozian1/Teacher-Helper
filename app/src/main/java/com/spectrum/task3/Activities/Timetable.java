@@ -42,7 +42,24 @@ public class Timetable extends AppCompatActivity {
       recyclerView =findViewById(R.id.dayview);
       daylist=new ArrayList<>();
       monday.add(new Mylist("asddas","aadasd","12\n45"));
+      monday.add(new Mylist("asddas","aadasd","12\n45"));
+      monday.add(new Mylist("asddas","aadasd","12\n45"));
+      monday.add(new Mylist("asddas","aadasd","12\n45"));
+      thuday.add(new Mylist("asddas","aadasd","12\n45"));
+      thuday.add(new Mylist("asddas","aadasd","12\n45"));
+      thuday.add(new Mylist("asddas","aadasd","12\n45"));
+      wedday.add(new Mylist("asddas","aadasd","12\n45"));
+      wedday.add(new Mylist("asddas","aadasd","12\n45"));
+      wedday.add(new Mylist("asddas","aadasd","12\n45"));
+      thusday.add(new Mylist("asddas","aadasd","12\n45"));
+      thusday.add(new Mylist("asddas","aadasd","12\n45"));
+      thusday.add(new Mylist("asddas","aadasd","12\n45"));
       friday.add(new Mylist("fdhhdfs","sdhfshasd","34\n4d"));
+      friday.add(new Mylist("fdhhdfs","sdhfshasd","34\n4d"));
+      friday.add(new Mylist("fdhhdfs","sdhfshasd","34\n4d"));
+      saterday.add(new Mylist("fdhhdfs","sdhfshasd","34\n4d"));
+      sunday.add(new Mylist("fdhhdfs","sdhfshasd","34\n4d"));
+
       daylist.add(new DayList("MONDAY","true"));
       daylist.add(new DayList("THUDAY","false"));
       daylist.add(new DayList("WEDDAY","false"));

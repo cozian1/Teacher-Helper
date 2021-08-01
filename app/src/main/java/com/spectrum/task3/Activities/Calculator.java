@@ -63,7 +63,6 @@ public class Calculator extends AppCompatActivity {
       long sum=0;
       for(String temp:s.split("[^0-9]")){
          c++;
-         System.out.println("%%%%%%% "+temp+"   %%%%%%%%");
          sum+=Long.parseLong(temp);
       }
       sum/=c;
