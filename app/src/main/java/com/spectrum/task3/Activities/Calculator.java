@@ -68,6 +68,7 @@ public class Calculator extends AppCompatActivity {
       }
       sum/=c;
       out+=sum;
+      s="("+s+")"+"/"+c;
       inputTxt.setText(s);
       outPuttxt.setText(out);
    }
