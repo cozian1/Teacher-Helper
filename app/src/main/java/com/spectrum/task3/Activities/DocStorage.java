@@ -3,6 +3,7 @@ package com.spectrum.task3.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,7 +45,7 @@ import java.util.List;
 
 public class DocStorage extends AppCompatActivity {
 
-   String displayName = " ";
+   String displayName = " ",kill="";
    final static int PICK_PDF_CODE = 2342;
    List<UploadFile> uploadList;
    RecyclerView recyclerView;
@@ -72,6 +73,20 @@ public class DocStorage extends AppCompatActivity {
       linearLayoutManager.setReverseLayout(true);
       linearLayoutManager.setStackFromEnd(true);
       recyclerView.setLayoutManager(linearLayoutManager);
+      ItemTouchHelper.SimpleCallback itemTouched= new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT|ItemTouchHelper.LEFT) {
+         @Override
+         public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+         }
+         @Override
+         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            kill=uploadList.get(viewHolder.getAdapterPosition()).getName();
+            uploadList.remove(viewHolder.getAdapterPosition());
+            updatefdata();
+            myAdapter.notifyDataSetChanged();
+         }
+      };
+      new ItemTouchHelper(itemTouched).attachToRecyclerView(recyclerView);
       recyclerView.setAdapter(myAdapter);
 
    }
@@ -165,7 +180,6 @@ public class DocStorage extends AppCompatActivity {
                   Toast.makeText(DocStorage.this, progress+"Uploading...", Toast.LENGTH_SHORT).show();
                }
             });
-
    }
    private void getfdata(){
       databaseReference.addValueEventListener(new ValueEventListener() {
@@ -199,5 +213,11 @@ public class DocStorage extends AppCompatActivity {
       }
       else getPDF();
 
+   }
+   private void updatefdata(){
+      storageReference.child("Uploads/" + kill ).delete();
+      databaseReference.removeValue();
+      for(UploadFile t:uploadList)
+         databaseReference.child(databaseReference.push().getKey()).setValue(t);
    }
 }

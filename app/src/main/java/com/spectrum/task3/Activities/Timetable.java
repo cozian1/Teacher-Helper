@@ -20,6 +20,7 @@ import java.util.List;
 
 public class Timetable extends AppCompatActivity {
 
+   String currentday="MONDAY";
    List<DayList> list=new ArrayList<>();
    List<DayList> daylist;
    RecyclerView recyclerView;
@@ -36,6 +37,8 @@ public class Timetable extends AppCompatActivity {
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_timetable);
+      getSupportActionBar().hide();
+
       recyclerView =findViewById(R.id.dayview);
       daylist=new ArrayList<>();
       monday.add(new Mylist("asddas","aadasd","12\n45"));
